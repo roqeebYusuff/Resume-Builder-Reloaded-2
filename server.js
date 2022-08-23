@@ -6,7 +6,7 @@ const path = require("path");
 // const options = require('./options')
 // const docs = require('./docs')
 
-const api = require("./api");
+const api = require("./src/api");
 
 const app = express();
 

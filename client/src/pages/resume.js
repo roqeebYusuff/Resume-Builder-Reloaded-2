@@ -200,11 +200,7 @@ export default function Playground() {
               <li className={`${currentStep >= 6 ? "active" : ""}`}>Socials</li>
             </ul>
           </div>
-          {/* <div className="backToHome">
-            <Link href="/">
-              <a>Resume Builder</a>
-            </Link>
-          </div> */}
+          
           <section className="comp__wraper">
             <div className="playground m-auto">
               <div className="overflow-hidden">
