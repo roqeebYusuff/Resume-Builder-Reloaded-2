@@ -1,0 +1,25 @@
+.hero__section{
+    min-height: 80vh;
+    h4{
+        font-size: 5rem;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        color: #fff;
+    }
+    h5{
+        font-size: 1.5rem;
+        font-family: 'Poppins', sans-serif;
+        color: #fff;
+        font-weight: 400;
+    }
+    .hero__btn{
+        display: inline-block;
+        font-weight: 500;
+        font-size: 1.5rem;
+        color: #fff;
+        padding: 1rem 5rem;
+        margin-top: 2rem;
+        border-radius: 35px;
+        background-color: #2511a1;
+    }
+}

@@ -1,0 +1,125 @@
+* {
+  font-family: "Work Sans", sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+.main__wrapper {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+  min-height: 100vh;
+}
+
+.resume__owner {
+  background-color: darkcyan;
+  /* padding: 0.3rem 0; */
+  text-align: center;
+}
+
+.resume__owner .name {
+  font-size: 3rem;
+}
+
+.resume__owner .contacts{
+    background-color: #024141;
+    color: #fff;
+    text-align: initial;
+    padding: 5px 1rem;
+}
+
+.resume__owner .contacts .social__icon i{
+    padding-right: 10px;
+}
+
+.other__info {
+    display: flex;
+    padding: 10px 1rem;
+}
+
+.other__info .left, .other__info .right{
+    width: 50%;
+    padding: 0 5px;
+}
+
+.single__section{
+    margin-bottom: 10px;
+}
+
+.single__section:last-child{
+    margin-bottom: 0;
+}
+
+.single__section .section__title{
+    font-weight: 700;
+    color: darkcyan;
+    text-decoration: underline;
+    text-decoration-thickness: initial;
+    text-decoration-style: wavy;
+    text-decoration-color: #024141;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.single__section .section__subtitle{
+    font-weight: 600;
+    line-height: initial;
+}
+
+.single__section .section__semi__subtitle{
+    font-weight: 400;
+    /* opacity: .5; */
+}
+
+.single__section .section__semi__subtitle span{
+    opacity: .8;
+    font-weight: 700;
+}
+
+.single__section .small{
+    color: darkcyan;
+    font-style: italic;
+}
+
+.single__section .description h6{
+    color: rgb(3, 89, 89);
+    font-size: 13px;
+}
+
+.single__section .description p{
+    font-size: 13px;
+    font-weight: 300;
+}
+
+.single__section .link{
+    font-size: 13px;
+}
+
+.single__section .link a{
+    font-size: 13px;
+    font-style: italic;
+    text-decoration: none;
+    color: darkcyan;
+}
+
+.single__section .list{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.single__section .list .list__items{
+    display: inline-block;
+    background-color: darkcyan;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 5px;
+    font-size: 13px;
+    margin-right: 5px;
+}

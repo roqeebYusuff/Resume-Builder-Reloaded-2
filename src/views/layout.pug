@@ -1,0 +1,21 @@
+//- layout.pug
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title My Site - #{title}
+    link(rel='stylesheet', href='http://localhost:7000/public/index.css')
+    block scripts
+    style.
+           .roqeeb {
+                background-color: red;
+                color: #fff;
+            }
+    //-   script(src='/jquery.js')
+  body
+    block content
+    block foot
+      #footer
+        p some footer content

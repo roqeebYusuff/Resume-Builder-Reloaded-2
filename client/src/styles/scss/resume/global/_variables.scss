@@ -1,0 +1,13 @@
+$main-color: radial-gradient( circle 879px at 10.4% 22.3%,  rgba(255,235,238,1) 0%, rgba(186,190,245,1) 93.6% );
+$an: #ffb3f6;
+$new-color: radial-gradient( circle farthest-corner at 38.1% 52.1%,  rgb(53, 235, 255) 0%, rgba(9,185,199,1) 90% );
+$text-color: #1a2c34;
+$another-color: linear-gradient( 109.6deg,  rgba(74,117,242,1) 11.2%, rgba(113,76,242,1) 91.3% );
+
+main{
+    position: relative;
+    background: $another-color;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    z-index: 1;
+}

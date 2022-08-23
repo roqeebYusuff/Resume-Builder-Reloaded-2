@@ -1,0 +1,42 @@
+.cta {
+  position: relative;
+  z-index: 5;
+  color: #fff;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #040433cc;
+    z-index: -1;
+  }
+  .cta__wrapper {
+    min-height: 40vh;
+    text-align: center;
+    h3{
+        font-size: 2.7rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+    p{
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    a{
+        padding: 1rem 4rem;
+        text-transform: capitalize;
+        font-size: 1.2rem;
+        color: #000;
+        background-color: #fff;
+        border: 2px solid transparent;
+        font-weight: 600;
+        &:hover{
+            color: #fff;
+            background-color: transparent;
+            border: 2px solid #fff;
+        }
+    }
+  }
+}

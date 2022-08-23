@@ -1,0 +1,16 @@
+/* Import bootstrap scss */
+
+/* Import mixins */
+@import './resume/mixins';
+
+/* Import globals */
+@import './resume/global';
+
+/* Import components */
+@import "./resume/components";
+
+/* Import layoyts */
+@import './resume/layouts';
+
+/* import pages */
+@import './resume/pages';
