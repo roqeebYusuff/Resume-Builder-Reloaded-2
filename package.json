@@ -1,9 +1,14 @@
 {
   "name": "resume",
   "version": "1.0.0",
+  "description": "This project will make it possible to make resume in less than five minutes",
   "main": "server.js",
-  "author": "Roqeeb",
+  "author": "Roqeeb Yusuff",
   "license": "MIT",
+  "engines": {
+    "node": "16.16.0",
+    "yarn": "1.22.15"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "client": "cd client && yarn start",
