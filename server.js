@@ -30,21 +30,11 @@ app.use(
 );
 
 app.use("/api/v1", api);
-app.use("/server", (req, res) => {
-  res.send({
-    success: true,
-    message: "Server Running",
-  });
-});
-
-app.get("/api", (req, res) => {
-  res.send({
-    success: true,
-    message: "Testing",
-  });
-});
 
 app.use(express.static(path.resolve(__dirname, "./client/build")));
+app.get("*", function (req, res) {
+  res.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
+});
 // This middleware informs the express application to serve our compiled React files
 // if (
 //   process.env.NODE_ENV === "production" ||

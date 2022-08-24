@@ -1,7 +1,7 @@
 const pdf = require("html-pdf");
 const { render, renderFile } = require("pug");
 var path = require("path");
-const fs = require('fs')
+const fs = require("fs");
 var pugPath = path.join(__dirname, "../../views/templateOne.pug");
 
 var options = { format: "Letter" };
@@ -35,11 +35,11 @@ module.exports.createPdf = async (req, res, next) => {
     });
 };
 
-module.exports.fetchPdf = async (req, res, next) => {
+module.exports.t = async (req, res, next) => {
   Promise.resolve(true)
     .then(async () => {
       const file = path.join(__dirname, "../../Resume.pdf");
-      res.download(file)
+      res.download(file);
       // fs.readFile(file, function(err, data){
       //   res.contentType('application/pdf')
       //   res.send(data)
@@ -55,8 +55,25 @@ module.exports.fetchPdf = async (req, res, next) => {
     });
 };
 
-// var file = path.join(__dirname,'Rajesh.pdf');
-// fs.readFile(file, function(err, data){
-//     res.contentType("application/pdf");
-//     res.send(data)
-// })
+module.exports.fetchPdf = (req, res) => {
+  try {
+    const file = path.join(__dirname, "../../Resume.pdf");
+
+    const src = fs.createReadStream(file);
+
+    var stat = fs.statSync(file);
+    res.setHeader("Content-Length", stat.size);
+    res.setHeader("Content-Type", "application/pdf");
+    res.setHeader("Content-Disposition", "attachment; filename=resume.pdf");
+
+    // res.writeHead(200, {
+    //   "Content-Type": "application/pdf",
+    //   "Content-Disposition": "attachment; filename=sample.pdf",
+    //   "Content-Transfer-Encoding": "Binary",
+    // });
+
+    src.pipe(res);
+  } catch (err) {
+    console.log(err);
+  }
+};
