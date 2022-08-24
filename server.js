@@ -51,9 +51,9 @@ if (
 ) {
   app.use(express.static(path.resolve(__dirname, "./client/build")));
 
-  // app.get("*", function (req, res) {
-  //   res.sendFile(path.join(__dirname, "client/build", "index.html"));
-  // });
+  app.get("*", function (req, res) {
+    res.sendFile(path.join(__dirname, "./client/build", "index.html"));
+  });
 }
 
 app.listen(process.env.PORT || 7000, function () {
