@@ -18,6 +18,7 @@ import StepFIve from "../components/StepFIve";
 import StepSix from "../components/StepSix";
 import StepFinal from "../components/StepFinal";
 import axios from "axios";
+import FileDownload from "js-file-download";
 // import { saveAs } from "file-saver";
 import { Loading } from "notiflix/build/notiflix-loading-aio";
 
@@ -37,72 +38,71 @@ export default function Playground() {
   const PreviousCLicked = () => {
     setCurrentStep(currentStep - 1);
   };
-    // const resumeData = {
-    //   personalInfo,
-    //   educations,
-    //   experiences,
-    //   projects,
-    //   skills,
-    //   socials,
-    // };
-    
-
+  // const resumeData = {
+  //   personalInfo,
+  //   educations,
+  //   experiences,
+  //   projects,
+  //   skills,
+  //   socials,
+  // };
 
   const download = async () => {
     const resumeData = {
       personalInfo: {
-      email: "roqeebyusuff17@gmail.com",
-      firstName: "Roqeeb",
-      lastName: "Yusuff",
-      middleName: "Oluwatoyin",
-      telephone: "2345789",
-      about:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo animi quidem aliquid sed impedit nesciunt voluptatem, quasi iure dolores soluta numquam id doloribus ipsa, voluptatum perferendis",
-    },
-    experiences: [
-      {
-        description: "Description",
-        endDate: "Present",
-        organisation: "Reedtech",
-        position: "Developer",
-        startDate: "2022-07-13",
+        email: "roqeebyusuff17@gmail.com",
+        firstName: "Roqeeb",
+        lastName: "Yusuff",
+        middleName: "Oluwatoyin",
+        telephone: "2345789",
+        about:
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo animi quidem aliquid sed impedit nesciunt voluptatem, quasi iure dolores soluta numquam id doloribus ipsa, voluptatum perferendis",
       },
-    ],
-    educations: [
-      {
-        course: "COmputer Science",
-        endDate: "Present",
-        institution: "FUTA",
-        startDate: "2022-07-07",
-        study: "B.TEch",
+      experiences: [
+        {
+          description: "Description",
+          endDate: "Present",
+          organisation: "Reedtech",
+          position: "Developer",
+          startDate: "2022-07-13",
+        },
+      ],
+      educations: [
+        {
+          course: "COmputer Science",
+          endDate: "Present",
+          institution: "FUTA",
+          startDate: "2022-07-07",
+          study: "B.TEch",
+        },
+        {
+          course: "Cyber Securtiy",
+          endDate: "Present",
+          institution: "OAU",
+          startDate: "2022-07-07",
+          study: "B.TEch",
+        },
+      ],
+      projects: [
+        {
+          description:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo animi quidem aliquid sed impedit nesciunt voluptatem, quasi iure dolores soluta numquam id doloribus ipsa, voluptatum perferendis",
+          link: "Link",
+          title: "Twitter CLone",
+        },
+      ],
+      skills: ["JS", "PHP", "Others"],
+      socials: {
+        github: "github",
+        linkedin: "linkedin",
+        twitter: "twitter",
+        website: "https://roqeeb-yusuff.vercel.app/",
       },
-      {
-        course: "Cyber Securtiy",
-        endDate: "Present",
-        institution: "OAU",
-        startDate: "2022-07-07",
-        study: "B.TEch",
-      },
-    ],
-    projects: [
-      {
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo animi quidem aliquid sed impedit nesciunt voluptatem, quasi iure dolores soluta numquam id doloribus ipsa, voluptatum perferendis",
-        link: "Link",
-        title: "Twitter CLone",
-      },
-    ],
-    skills: ["JS", "PHP", "Others"],
-    socials: {
-      github: "github",
-      linkedin: "linkedin",
-      twitter: "twitter",
-      website: "https://roqeeb-yusuff.vercel.app/",
-    },
     };
     // Show loader
     Loading.standard("Generating Resume...");
     await axios
-      .post(`/api/v1/resume/generatepdf`, resumeData)
+      .post(`api/v1/resume/generatepdf`, resumeData)
       .then(async ({ data }) => {
         console.log("Generating data ", data);
         if (data.success) {
@@ -110,26 +110,22 @@ export default function Playground() {
           Loading.change("Fetching Resuming");
           await axios
             .get(`api/v1/resume/fetchPdf`, { responseType: "blob" })
-            .then(({data}) => {
+            .then(({ data }) => {
               Loading.change("Downloading Resume");
-              // console.log('The result ',res)
-              const pdfBlob = new Blob([data], {
-                type: "text/pdf;charset-utf-8;",
-              });
-              const blobURL = URL.createObjectURL(pdfBlob)
-              const tag = document.createElement('a')
-              tag.href = blobURL
-              tag.download = `${personalInfo.lastName} ${personalInfo.firstName} ${personalInfo.middleName}'s Resume.pdf`
-              tag.style = 'display: none'
-              document.body.appendChild(tag)
-              tag.click()
-              // saveAs(
-              //   pdfBlob,
-              //   `${personalInfo.lastName} ${personalInfo.firstName} ${personalInfo.middleName}'s Resume.pdf`
-              // );
-              // tag.setAttribute('download', `${personalInfo.lastName} ${personalInfo.firstName} ${personalInfo.middleName}'s Resume.pdf`)
-              // document.body.removeChild(tag)
-
+              FileDownload(
+                data,
+                `${personalInfo.lastName} ${personalInfo.firstName} ${personalInfo.middleName}'s Resume.pdf`
+              );
+              // const pdfBlob = new Blob([data], {
+              //   type: "text/pdf;charset-utf-8;",
+              // });
+              // const blobURL = URL.createObjectURL(pdfBlob)
+              // const tag = document.createElement('a')
+              // tag.href = blobURL
+              // tag.download = `${personalInfo.lastName} ${personalInfo.firstName} ${personalInfo.middleName}'s Resume.pdf`
+              // tag.style = 'display: none'
+              // document.body.appendChild(tag)
+              // tag.click()
               Loading.remove(2000);
             })
             .catch((error) => {
@@ -200,7 +196,7 @@ export default function Playground() {
               <li className={`${currentStep >= 6 ? "active" : ""}`}>Socials</li>
             </ul>
           </div>
-          
+
           <section className="comp__wraper">
             <div className="playground m-auto">
               <div className="overflow-hidden">

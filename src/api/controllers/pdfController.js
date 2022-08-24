@@ -39,10 +39,11 @@ module.exports.fetchPdf = async (req, res, next) => {
   Promise.resolve(true)
     .then(async () => {
       const file = path.join(__dirname, "../../Resume.pdf");
-      fs.readFile(file, function(err, data){
-        res.contentType('application/pdf')
-        res.send(data)
-      })
+      res.download(file)
+      // fs.readFile(file, function(err, data){
+      //   res.contentType('application/pdf')
+      //   res.send(data)
+      // })
       // res.download(file);
     })
     .catch((error) => {
