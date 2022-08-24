@@ -12,10 +12,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "client": "cd client && yarn start",
-    "serverStart": "node server.js",
+    "start": "node server.js",
     "server": "env-cmd nodemon server.js",
     "dev": "concurrently --kill-others-on-fail \"yarn client\" \"yarn server\"",
-    "start": "concurrently --kill-others-on-fail \"yarn client\" \"yarn serverStart\"",
     "build-client": "cd client && npm run build"
   },
   "dependencies": {
